@@ -158,3 +158,4 @@ daily graph snapshots. To [Domokos M. Kelen](https://github.com/proto-n) and [Re
 Christian Decker, Cyril Grunspan and to our anonymous reviewer for their invaluable comments. Support
 from Project 2018-1.2.1-NKP-00008: Exploring the Mathematical Foundations of Artificial Intelligence and
 the “Big Data—–Momentum” grant of the Hungarian Academy of Sciences.
+e
