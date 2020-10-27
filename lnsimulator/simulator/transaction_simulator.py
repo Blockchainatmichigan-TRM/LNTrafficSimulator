@@ -108,15 +108,22 @@ class TransactionSimulator():
             os.makedirs(output_dir)
         with open('%s/params.json' % output_dir, 'w') as fp:
             json.dump(self.params, fp)
-        length_distrib = self.shortest_paths["length"].value_counts()
+        #shortest_paths, alternative_paths, all_router_fees, total_depletions = simulate(self, "total_fee", False, 2, [], None, [], 1.0)
+        #return shortest_paths, alternative_paths, all_router_fees, total_depletions
+        
+        """length_distrib = self.shortest_paths["length"].value_counts()
         length_distrib.to_csv("%s/lengths_distrib.csv" % output_dir)
         total_income = get_total_income_for_routers(self.all_router_fees)
         total_income.to_csv("%s/router_incomes.csv" % output_dir, index=False)
         total_fee = get_total_fee_for_sources(self.transactions, self.shortest_paths)
         total_fee.to_csv("%s/source_fees.csv" % output_dir, index=True)
         print("Export DONE")
-        return total_income, total_fee
-    
+        return total_income, total_fee"""
+
+
+
+
+"""   
 ### process results ###
 
 def get_total_income_for_routers(all_router_fees):
@@ -199,4 +206,4 @@ def calc_optimal_base_fee(shortest_paths, alternative_paths, all_router_fees):
     merged_infos["income_diff"] = merged_infos.apply(lambda x: x["opt_alt_income"] - x["alt_income"] +  x["failed_traffic"] * x["opt_delta"], axis=1)
     merged_infos
     #print(merged_infos.drop("node", axis=1).mean())
-    return merged_infos[["node","total_income","total_traffic","failed_traffic_ratio","opt_delta","income_diff"]], p_altered
+    return merged_infos[["node","total_income","total_traffic","failed_traffic_ratio","opt_delta","income_diff"]], p_altered"""

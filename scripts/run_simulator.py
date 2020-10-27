@@ -31,7 +31,12 @@ def run_experiment(edges, parameter_file, output_dir):
     simulator = ts.TransactionSimulator(edges, providers, amount, count, epsilon=epsilon, drop_disabled=drop_disabled, drop_low_cap=drop_low_cap, with_depletion=with_depletion)
     transactions = simulator.transactions
     shortest_paths, alternative_paths, all_router_fees, _ = simulator.simulate(weight="total_fee", with_node_removals=find_alternative_paths, max_threads=max_threads)
-    total_income, total_fee = simulator.export(output_dir)
+    print(shortest_paths)
+    print(alternative_paths)
+    print(all_router_fees)
+    print(_)
+
+    #shortest_paths, alternative_paths, all_router_fees, total_depletions = simulator.export(output_dir)
     
     print("\n# 5. Analyze optimal base fee for nodes")
     if find_alternative_paths:
