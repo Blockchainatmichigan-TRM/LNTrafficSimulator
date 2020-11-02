@@ -44,8 +44,8 @@ def generate_directed_graph(edges, policy_keys=['disabled', 'fee_base_msat', 'fe
         else:
             e2 += [row["node1_policy"][x] for x in policy_keys]
         directed_edges += [e1, e2]
-
-    cols = ["node1_pub","node2_pub","snapshot_id","src","trg","last_update","channel_id","capacity"] + policy_keys
+    cols = ["snapshot_id","src","trg","last_update","channel_id","capacity"] + policy_keys
+    #cols = ["node1_pub","node2_pub","snapshot_id","src","trg","last_update","channel_id","capacity"] + policy_keys
     directed_edges_df = pd.DataFrame(directed_edges, columns=cols)
     return directed_edges_df
 
@@ -68,8 +68,8 @@ def preprocess_json_file(json_file):
     print("missing values for columns:")
     print(directed_df.isnull().sum())
     directed_df = directed_df.fillna({"disabled":False,"fee_base_msat":1000,"fee_rate_milli_msat":1,"min_htlc":1000})
-    #for col in ["fee_base_msat","fee_rate_milli_msat","min_htlc"]:
-    for col in ["fee_base_msat"]:
+    for col in ["fee_base_msat","fee_rate_milli_msat","min_htlc"]:
+    #for col in ["fee_base_msat"]:
         directed_df[col] = directed_df[col].astype("float64")
     return directed_df
     
