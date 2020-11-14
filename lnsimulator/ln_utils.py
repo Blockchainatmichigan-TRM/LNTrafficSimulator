@@ -44,7 +44,7 @@ def generate_directed_graph(edges, policy_keys=['disabled', 'fee_base_msat', 'fe
         else:
             e2 += [row["node1_policy"][x] for x in policy_keys]
         directed_edges += [e1, e2]
-    cols = ["node1_pub","node2_pub","snapshot_id","src","trg","last_update","channel_id","capacity"] + policy_keys
+    cols = ["snapshot_id","src","trg","last_update","channel_id","capacity"] + policy_keys
     directed_edges_df = pd.DataFrame(directed_edges, columns=cols)
     return directed_edges_df
 
