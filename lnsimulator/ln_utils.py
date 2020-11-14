@@ -48,7 +48,7 @@ def generate_directed_graph(edges, policy_keys=['disabled', 'fee_base_msat', 'fe
     directed_edges_df = pd.DataFrame(directed_edges, columns=cols)
     return directed_edges_df
 
-def preprocess_json_file(json_file):
+def preprocess_json_file(json_file): 
     """Generate directed graph data (traffic simulator input format) from json LN snapshot file."""
     json_files = [json_file]
     print("\ni.) Load data")
